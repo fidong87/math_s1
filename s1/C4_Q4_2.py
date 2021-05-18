@@ -2,22 +2,23 @@ from manim import *
 
 class C4_Q4_2(Scene):
     def construct(self):
-       
-      text1=MathTex("- \\sqrt{x+1}").set_color(BLUE)
-      self.play(text1.animate.shift(3*RIGHT))
-      self.wait()
-      
-      text2=MathTex(" + \\sqrt{x+1}").shift(3*RIGHT)
-      self.play(Transform(text1, text2))
-      self.wait(2)  
-      self.play(        
-        LaggedStart(*[FadeOutAndShift(obj, direction=DOWN) for obj in text1]),
-      )
 
       text=[]
       textCopy=[]
-      text.append(MathTex("\\sqrt{x-1} - \\sqrt{x+1} = 2").shift(3*UP))
+      text.append(MathTex("4.  ", "\\sqrt{x-1}", " - \\sqrt{x+1}","=","2").shift(3*UP,0.8*LEFT))
       self.play(Write(text[0]))
+      self.play(text[0][0].animate.shift(2*LEFT))
+      self.wait(2)
+
+      textC=text[0].copy()
+      framebox1 = SurroundingRectangle(text[0][2], buff = .1)      
+      textS=MathTex(" + \\sqrt{x+1}").move_to(text[0]).shift(5*RIGHT)
+      self.play(Create(framebox1))
+      self.play(Transform(text[0][2], textS))
+      self.wait(2)
+      self.play(FadeOut(framebox1),FadeOut(text[0]))
+      self.add(textC) 
+
       text.append(MathTex("\\sqrt{x-1}","=","2"," + \\sqrt{x+1}").move_to(text[0]).shift(DOWN))
       self.play(Write(text[1]))
       self.wait(2)  
@@ -60,11 +61,10 @@ class C4_Q4_2(Scene):
         LaggedStart(*[FadeOutAndShift(obj, direction=DOWN) for obj in framebox4]),
       )
 
-      tex1=MathTex(" - 4").shift(4*LEFT)
-      self.play(Transform(text[3][3],tex1 ))
-      tex2=MathTex(" - 1").shift(3*LEFT)
-      self.play(Transform(text[3][6],tex2 ))    
-      self.wait(3)
+      tex1=MathTex(" - 4").shift(5*LEFT)
+      tex2=MathTex(" - 1").shift(4*LEFT)
+      self.play(Transform(text[3][3],tex1 ),Transform(text[3][6],tex2 ))
+      self.wait(2)
 
       text.append(MathTex("-6","=",  "4","\\sqrt{x+1}").move_to(textCopy[0]).shift(DOWN))    
       self.play(
@@ -74,18 +74,16 @@ class C4_Q4_2(Scene):
       self.play(Write(text[4]))
 
       textCopy.append(text[4].copy())
+      tex4=MathTex("\\overline{4}").move_to(textCopy[1]).shift(1.2*LEFT,0.5*DOWN)
       self.wait(2)
-      self.play(text[4][2].animate.shift(LEFT,DOWN))
-      self.wait(2)
+      self.play(Transform(text[4][2],tex4 ))  
       tex3=MathTex("\\frac{-6}{4}").move_to(textCopy[1]).shift(2*LEFT)
-      self.play(       
-        LaggedStart(*[FadeOutAndShift(obj, direction=DOWN) for obj in  text[4][2]])
+      self.play(    
+        LaggedStart(*[FadeOutAndShift(obj, direction=DOWN) for obj in  text[4][2]]),
+        Transform(text[4][0],tex3 )
       )
-      self.play(Transform(text[4][0],tex3 ))      
       self.wait(2)
-      self.play(       
-        LaggedStart(*[FadeOutAndShift(obj, direction=DOWN) for obj in  text[4]])
-      )
+      self.remove(*[text[4][i] for i in range(0,len(text[4]))])
       self.wait()
 
       text.append(MathTex("\\sqrt{x+1}","=", "-\\frac{3}{2}").move_to(textCopy[1]).shift(DOWN))     
@@ -98,11 +96,12 @@ class C4_Q4_2(Scene):
       self.remove(*[text[i] for i in range(0,len(text))])
 
            
-      text.append(MathTex("\\sqrt{x+1}").move_to(text[0]).shift(DOWN,4*LEFT))
+      text.append(MathTex("\\because \\sqrt{x+1}").move_to(text[0]).shift(DOWN,2*LEFT))
       text.append(Text("不能是负值").move_to(text[6]).shift(4*RIGHT))
       self.play(Write(text[6]),Write(text[7]))
+      self.wait(2)
           
-      text.append(MathTex("\\sqrt{x-1} - \\sqrt{x+1} ").move_to(text[6]).shift(DOWN,RIGHT))
+      text.append(MathTex("\\therefore \\sqrt{x-1} - \\sqrt{x+1} ").move_to(text[6]).shift(DOWN,RIGHT))
       text.append(Text("无解").move_to(text[8]).shift( 3*RIGHT)) 
       self.play(Write(text[8]),Write(text[9]))
       self.wait(2)
