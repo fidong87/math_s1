@@ -8,7 +8,7 @@ class C4_Q2_1(Scene):
       textAnimate=[]
       framebox=[]
       textEquation=[]
-      text.append(MathTex("1.  ").shift(3*UP,6*LEFT))
+      text.append(MathTex("2.  ").shift(3*UP,6*LEFT))
       text.append(MathTex("\\sqrt{x^2-2x+1}","=","2").shift(3*UP,0.8*LEFT))
       self.play(Write(text[0]))
       self.play(Write(text[1]))
@@ -62,13 +62,3 @@ class C4_Q2_1(Scene):
       text.append(MathTex("x","=","-1").move_to(text[7]).shift(DOWN))
       self.play(Write(text[9]),run_time=2)
       self.wait(2)
-
-
-      # text.append(MathTex("(\\sqrt{x-1})^2","=","(3 + \\sqrt{x-4})^2").move_to(text[2]).shift(DOWN,0.1*RIGHT))
-      # self.play(Write(text[3]))
-      # self.wait(2)
-
-      # textEquation.append(MathTex("(a+ b)^2 = a^2 + 2ab + b^2").move_to(text[3]).shift(DOWN,1.5*RIGHT).set_color(ORANGE))
-      # self.play(Write(textEquation[0]))
-      # self.wait(2)
-      # self.play(FadeOut(textEquation[0]))   

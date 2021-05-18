@@ -8,7 +8,7 @@ class C4_Q2_3(Scene):
       textAnimate=[]
       framebox=[]
       textEquation=[]
-      text.append(MathTex("1.  ").shift(3*UP,6*LEFT))
+      text.append(MathTex("2.  ").shift(3*UP,6*LEFT))
       text.append(MathTex("\\sqrt{x^2-2x+1}","=","2").shift(3*UP,1*LEFT))
       self.add(text[0],text[1])
 
