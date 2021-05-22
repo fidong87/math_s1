@@ -1,6 +1,6 @@
 # math_s1
 
-*Solving the Mathemathic question. 
+*Solving the Mathemathics question. 
 
 *UEC Senior 1.
 
