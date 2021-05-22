@@ -1,6 +1,6 @@
 # math_s1
 
-*Solving the Mathemathics question. 
+*Solving the Mathemathics question. [Educate Tehchie](https://www.youtube.com/watch?v=TdtLqbMWZt4)
 
 *UEC Senior 1.
 
